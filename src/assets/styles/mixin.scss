@@ -1,0 +1,48 @@
+@font-face {
+  font-family: electronicFont;
+  src: url("../font/DS-DIGIT-4.ttf");
+}
+
+.electronicFont {
+  font-family: electronicFont;
+}
+
+/* 隐藏 IE、Edge 和 Firefox 的滚动条 */
+.example {
+  -ms-overflow-style: none; /* IE , Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow: hidden;
+  &::-webkit-scrollbar {
+    /* 隐藏 Chrome、Safari 和 Opera 的滚动条 */
+    display: none;
+  }
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  width: 3px; /* 设置滚动条的宽度 */
+  height: 3px;
+  &:hover {
+    width: 3px; /* 设置滚动条的宽度 */
+    height: 3px;
+  }
+}
+
+/* 设置滚动条的滑块样式 */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px; /* 设置滑块的圆角 */
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* 设置滚动条的轨道样式 */
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1); /* 设置轨道的背景颜色 */
+}
+
+/* 设置滚动条的角落样式 */
+::-webkit-scrollbar-corner {
+  background-color: rgba(0, 0, 0, 0.1); /* 设置角落的背景颜色 */
+}
