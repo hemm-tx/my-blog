@@ -15,6 +15,72 @@ const routes = createBrowserRouter([
         path: "",
         Component: lazy(() => import("@/pages/Home")),
       },
+      {
+        path: "/home",
+        Component: lazy(() => import("@/pages/Home")),
+      },
+      {
+        path: "/tailwindcss",
+        Component: lazy(() => import("@/pages/TailwindCss")),
+        children: [
+          {
+            path: "/tailwindcss",
+            Component: lazy(() => import("@/pages/TailwindCss/FontSize")),
+          },
+          {
+            path: "/tailwindcss/font-size",
+            Component: lazy(() => import("@/pages/TailwindCss/FontSize")),
+          },
+        ],
+      },
+      {
+        path: "/javascript",
+        Component: lazy(() => import("@/pages/JavaScript")),
+      },
+      {
+        path: "/react",
+        Component: lazy(() => import("@/pages/React")),
+        children: [
+          {
+            path: "/react",
+            Component: lazy(() => import("@/pages/React/CreateViteReactProject")),
+          },
+          {
+            path: "/react/create-vite-react-project",
+            Component: lazy(() => import("@/pages/React/CreateViteReactProject")),
+          },
+          {
+            path: "/react/wrapper-axios",
+            Component: lazy(() => import("@/pages/React/WrapperAxios")),
+          },
+          {
+            path: "/react/wrapper-echarts",
+            Component: lazy(() => import("@/pages/React/WrapperEcharts")),
+          },
+        ],
+      },
+      {
+        path: "/vitejs",
+        Component: lazy(() => import("@/pages/Vite")),
+        children: [
+          {
+            path: "/vitejs",
+            Component: lazy(() => import("@/pages/Vite/CreateViteProject")),
+          },
+          {
+            path: "/vitejs/create-vite-project",
+            Component: lazy(() => import("@/pages/Vite/CreateViteProject")),
+          },
+          {
+            path: "/vitejs/vite-env",
+            Component: lazy(() => import("@/pages/Vite/ViteEnv")),
+          },
+        ],
+      },
+      {
+        path: "*",
+        Component: lazy(() => import("@/pages/NotFound")),
+      },
     ],
   },
 ]);

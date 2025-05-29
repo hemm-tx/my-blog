@@ -1,13 +1,13 @@
 // 导入组合函数
 import { configureStore } from "@reduxjs/toolkit";
 
-import counterReducer from "./modules/counterStore";
+import headerReducer from "./modules/headerStore";
 
 import { type TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    header: headerReducer,
   },
 });
 

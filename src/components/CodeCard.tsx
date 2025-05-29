@@ -1,0 +1,102 @@
+import { Card, Button, Tabs } from "antd";
+import type { FC, ReactNode } from "react";
+import { useState, createContext, useContext } from "react";
+import { CopyOutlined } from "@ant-design/icons";
+
+interface CodeCardProps {
+  title?: string | ReactNode;
+  code: string[];
+}
+const CodeCardContext = createContext<CodeCardProps | null>(null);
+
+const CodeContent: FC<{ shell?: boolean }> = ({ shell }) => {
+  const { code } = useContext(CodeCardContext) || {};
+  return (
+    <pre className={`code-snippet ${shell ? "shell" : ""}`}>
+      <code>
+        {code?.map((line, index) => (
+          <span key={index}>
+            {line}
+            <br />
+          </span>
+        ))}
+      </code>
+    </pre>
+  );
+};
+
+const CodeCard: FC<CodeCardProps> = ({ title, code }) => {
+  const create_title = () => {
+    return (
+      <div className="flex flex-row place-items-center">
+        <div className="w-3 h-3 rounded-full ml-1 bg-red-500"></div>
+        <div className="w-3 h-3 rounded-full ml-1 bg-yellow-500"></div>
+        <div className="w-3 h-3 rounded-full ml-1 bg-green-500"></div>
+        <span className="m-2">{title}</span>
+      </div>
+    );
+  };
+  return (
+    <CodeCardContext.Provider value={{ title, code }}>
+      <Card size="small" title={create_title()} classNames={{ body: "relative bg-[#FBF5F5]" }}>
+        <CodeContent />
+        <div className="absolute right-2 top-2" onClick={() => navigator.clipboard.writeText(code.join("\n"))}>
+          <Button size="large" color="default" variant="filled" icon={<CopyOutlined />} />
+        </div>
+      </Card>
+    </CodeCardContext.Provider>
+  );
+};
+
+const CreateShellCode = () => {
+  const { code } = useContext(CodeCardContext) || {};
+  return (
+    <div className="flex relative items-center hover:*:[&+div]:visible">
+      <CodeContent shell />
+      <div className="absolute right-2 invisible transition-[visibility] duration-500" onClick={() => code && navigator.clipboard.writeText(code.join("\n"))}>
+        <Button size="large" color="default" variant="filled" icon={<CopyOutlined />} />
+      </div>
+    </div>
+  );
+};
+
+const ShellCode: FC<CodeCardProps> = ({ code }) => {
+  return (
+    <CodeCardContext.Provider value={{ code: code }}>
+      <Card size="small" classNames={{ body: "relative bg-[#FBF5F5]" }}>
+        <CreateShellCode />
+      </Card>
+    </CodeCardContext.Provider>
+  );
+};
+
+interface TabsShellCodeProps {
+  label: string;
+  key: string;
+  code: string[];
+}
+
+const TabsShellCode: FC<{ items: TabsShellCodeProps[] }> = ({ items }) => {
+  const [currentLabel, setCurrentLabel] = useState(items[0].key);
+  const onChange = (key: string) => {
+    setCurrentLabel(key);
+  };
+
+  const tabs = items.map((item) => ({
+    label: item.label,
+    key: item.key,
+    children: (
+      <CodeCardContext.Provider value={{ code: item.code }}>
+        <CreateShellCode />
+      </CodeCardContext.Provider>
+    ),
+  }));
+
+  return (
+    <Card size="small" classNames={{ body: "relative bg-[#FBF5F5]" }}>
+      <Tabs size="small" defaultActiveKey={tabs[0].key} activeKey={currentLabel} onChange={onChange} items={tabs} />
+    </Card>
+  );
+};
+
+export { CodeCard, ShellCode, TabsShellCode };
