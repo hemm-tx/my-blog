@@ -6,6 +6,7 @@ import { CopyOutlined } from "@ant-design/icons";
 interface CodeCardProps {
   title?: string | ReactNode;
   code: string[];
+  language?: string;
 }
 const CodeCardContext = createContext<CodeCardProps | null>(null);
 
@@ -25,20 +26,24 @@ const CodeContent: FC<{ shell?: boolean }> = ({ shell }) => {
   );
 };
 
-const CodeCard: FC<CodeCardProps> = ({ title, code }) => {
-  const create_title = () => {
-    return (
-      <div className="flex flex-row place-items-center">
-        <div className="w-3 h-3 rounded-full ml-1 bg-red-500"></div>
-        <div className="w-3 h-3 rounded-full ml-1 bg-yellow-500"></div>
-        <div className="w-3 h-3 rounded-full ml-1 bg-green-500"></div>
-        <span className="m-2">{title}</span>
-      </div>
-    );
-  };
+const CodeCard: FC<CodeCardProps> = ({ title, code, language }) => {
   return (
-    <CodeCardContext.Provider value={{ title, code }}>
-      <Card size="small" title={create_title()} classNames={{ body: "relative bg-[#FBF5F5]" }}>
+    <CodeCardContext.Provider value={{ title, code, language }}>
+      <Card
+        size="small"
+        title={
+          <div className="flex flex-row justify-between">
+            <div className="flex flex-row place-items-center">
+              <div className="w-3 h-3 rounded-full ml-1 bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full ml-1 bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full ml-1 bg-green-500"></div>
+              <span className="m-2">{title}</span>
+            </div>
+            <div className="m-2 cursor-default">{language}</div>
+          </div>
+        }
+        classNames={{ body: "relative bg-[#FBF5F5]" }}
+      >
         <CodeContent />
         <div className="absolute right-2 top-2" onClick={() => navigator.clipboard.writeText(code.join("\n"))}>
           <Button size="large" color="default" variant="filled" icon={<CopyOutlined />} />
@@ -78,9 +83,7 @@ interface TabsShellCodeProps {
 
 const TabsShellCode: FC<{ items: TabsShellCodeProps[] }> = ({ items }) => {
   const [currentLabel, setCurrentLabel] = useState(items[0].key);
-  const onChange = (key: string) => {
-    setCurrentLabel(key);
-  };
+  const onChange = (key: string) => setCurrentLabel(key);
 
   const tabs = items.map((item) => ({
     label: item.label,

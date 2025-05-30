@@ -1,6 +1,6 @@
 import { useAppSelector } from "@/store";
 import { PicCenterOutlined } from "@ant-design/icons";
-import { Divider, Card } from "antd";
+import { Divider, Card, Tooltip } from "antd";
 import { IconComponents, type IconType } from "@/components";
 import { useNavigate } from "react-router-dom";
 
@@ -29,11 +29,15 @@ export default function Home() {
                   {item.children?.map((child) => (
                     <div key={child.key} className="w-full" onClick={() => navigate(`/${child.key}`)}>
                       <div className="col-span-1">
-                        <Card hoverable size="small" classNames={{ body: "bg-[#FBF5F5]" }}>
+                        <Card hoverable size="small" classNames={{ body: "h-25 flex flex-col" }}>
                           <span className="font-bold text-[16px] text-[#709D83]">{child.label}</span>
-                          <div className="flex mt-1">
-                            {renderIcon(child.icon)}
-                            <span className="pl-2">{child.label}</span>
+                          <div className="flex-1 relative items-center mt-1">
+                            <div className="w-full h-full flex items-center absolute">
+                              <div className="w-9 mr-3">{renderIcon(child.icon)}</div>
+                              <Tooltip title={child.description}>
+                                <span className="text-ellipsis overflow-hidden line-clamp-2 hover:">{child.description}</span>
+                              </Tooltip>
+                            </div>
                           </div>
                         </Card>
                       </div>

@@ -1,5 +1,5 @@
 import { Table } from "antd";
-import { CodeCard, ContentCard, DeclarationCard, Template } from "@/components";
+import { ContentCard, DeclarationCard, Template } from "@/components";
 
 const constList = [
   {
@@ -37,7 +37,7 @@ export default function ViteEnv() {
       <Template.Content id="vite-env-content-custom">
         <ContentCard title="Vite 自定义环境变量">
           <ContentCard.Text>Vite 定义环境变量的方式是通过项目根目录下的.env 文件，该文件可以定义多个环境变量，然后通过 import.meta.env 获取。</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
             code={[
               ".env                   # 所有情况下都会加载",
               ".env.local             # 所有情况下都会加载，但会被 git 忽略",
@@ -49,7 +49,9 @@ export default function ViteEnv() {
       </Template.Content>
       <Template.Content id="vite-env-content-data-type">
         <ContentCard title="Vite 定义数据类型">
-          <CodeCard
+          <ContentCard.Code
+            title="vite-env.d.ts"
+            language=".d.ts"
             code={[
               "/// <reference types='vite/client' />",
               "",
@@ -75,9 +77,9 @@ export default function ViteEnv() {
         <ContentCard title="Vite 内置常量">
           <ContentCard.Text>Vite 内置常量可以通过 import.meta.env 获取，这些常量可以帮助你在代码中使用环境变量。</ContentCard.Text>
           <Table dataSource={constList} rowKey="name" pagination={false}>
-            <Column title="变量名" fixed="left" dataIndex="name" key="name" />
-            <Column title="类型" dataIndex="type" key="type" />
-            <Column title="描述" dataIndex="desc" key="desc" />
+            <Column align="center" title="变量名" fixed="left" dataIndex="name" key="name" />
+            <Column align="center" title="类型" dataIndex="type" key="type" />
+            <Column align="center" title="描述" dataIndex="desc" key="desc" />
           </Table>
         </ContentCard>
       </Template.Content>

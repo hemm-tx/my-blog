@@ -1,4 +1,4 @@
-import { ContentCard, DeclarationCard, TabsShellCode, Template } from "@/components";
+import { ContentCard, DeclarationCard, Template } from "@/components";
 
 const list = [
   {
@@ -46,9 +46,9 @@ export default function CreateViteProject() {
     <Template id="create-vite-project-page">
       <ContentCard title="创建 Vite 项目">
         <Text>命令函输入以下命令创建 Vite 项目，并选择模板：</Text>
-        <TabsShellCode items={items} />
+        <ContentCard.TabsShellCode items={items} />
         <Text>通过附加的命令行选项直接指定项目名称和想要使用的模板</Text>
-        <TabsShellCode items={template_items} />
+        <ContentCard.TabsShellCode items={template_items} />
       </ContentCard>
       <DeclarationCard title="文章声明" importForm={[{ text: "内容摘抄自： Vite 官方文档 《开始》", href: "https://cn.vitejs.dev/guide/" }]} />
     </Template>

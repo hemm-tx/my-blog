@@ -1,4 +1,4 @@
-import { ContentCard, ShellCode, CodeCard, DeclarationCard, Template } from "@/components";
+import { ContentCard, DeclarationCard, Template } from "@/components";
 
 const CreateViteReactProject = () => {
   return (
@@ -6,14 +6,14 @@ const CreateViteReactProject = () => {
       <Template.Content id="create-vite-react-project">
         <ContentCard title="创建 Vite React 项目">
           <ContentCard.Text>使用 Vite 创建 React 项目</ContentCard.Text>
-          <ShellCode code={["npm create-vite-app my-app --template react"]} />
+          <ContentCard.ShellCode code={["npm create-vite-app my-app --template react"]} />
           <ContentCard.Text>安装依赖并启动项目</ContentCard.Text>
-          <ShellCode code={["cd my-app", "npm install", "npm run dev"]} />
+          <ContentCard.ShellCode code={["cd my-app", "npm install", "npm run dev"]} />
         </ContentCard>
       </Template.Content>
       <Template.Content id="project-structure">
         <ContentCard title="项目结构">
-          <CodeCard
+          <ContentCard.Code
             code={[
               "my-app",
               "├── node_modules",
@@ -44,17 +44,18 @@ const CreateViteReactProject = () => {
         <ContentCard title="配置项目">
           <ContentCard.Paragraph id="configure-project-0">安装依赖</ContentCard.Paragraph>
           <ContentCard.Text>安装 react-redux 和 react-router-dom</ContentCard.Text>
-          <ShellCode code={["npm install react-redux react-router-dom"]} />
+          <ContentCard.ShellCode code={["npm install react-redux react-router-dom"]} />
           <ContentCard.Text>安装 scss 预处理器</ContentCard.Text>
-          <ShellCode code={["npm install sass sass-loader --save-dev"]} />
+          <ContentCard.ShellCode code={["npm install sass sass-loader --save-dev"]} />
           <ContentCard.Text>安装 tailwindcss</ContentCard.Text>
-          <ShellCode code={["npm install tailwindcss @tailwindcss/vite"]} />
+          <ContentCard.ShellCode code={["npm install tailwindcss @tailwindcss/vite"]} />
 
           <ContentCard.Paragraph mt id="configure-project-1">
             更新 vite 配置文件
           </ContentCard.Paragraph>
           <ContentCard.Text>编辑 vite.config.js 文件</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="javascript"
             title="vite.config.js"
             code={[
               "import { defineConfig } from 'vite';",
@@ -89,11 +90,12 @@ const CreateViteReactProject = () => {
             创建项目文件夹和文件
           </ContentCard.Paragraph>
           <ContentCard.Text>运行命令创建项目所需要的文件夹和文件</ContentCard.Text>
-          <ShellCode code={["mkdir src/routes src/pages src/components src/store src/assets src/api", "touch src/pages/Home.tsx"]} />
+          <ContentCard.ShellCode code={["mkdir src/routes src/pages src/components src/store src/assets src/api", "touch src/pages/Home.tsx"]} />
           <ContentCard.Text>在 index.css 文件中导入 tailwindcss 样式文件</ContentCard.Text>
-          <CodeCard title="src/index.css" code={["@import 'tailwindcss';"]} />
+          <ContentCard.Code language="css" title="src/index.css" code={["@import 'tailwindcss';"]} />
           <ContentCard.Text>编辑 src/pages/Home.tsx 文件</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="tsx"
             title="src/pages/Home.tsx"
             code={[
               "export default function Home() {",
@@ -105,7 +107,8 @@ const CreateViteReactProject = () => {
             创建项目路由，使用 lazy 懒加载组件
           </ContentCard.Paragraph>
           <ContentCard.Text>编辑 src/routes/index.ts 文件</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="typescript"
             title="src/routes/index.ts"
             code={[
               "import { createBrowserRouter } from 'react-router-dom';",
@@ -130,7 +133,8 @@ const CreateViteReactProject = () => {
             ]}
           />
           <ContentCard.Text>使用 @/pages/Home 导入组件会报错，需要在 tsconfig.app.json 文件中配置路径映射</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="json"
             title="tsconfig.app.json"
             code={[
               "{",
@@ -152,7 +156,8 @@ const CreateViteReactProject = () => {
             ]}
           />
           <ContentCard.Text>给 App.tsx 文件添加路由组件</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="tsx"
             title="src/App.tsx"
             code={[
               "import { Outlet } from 'react-router-dom';",
@@ -173,9 +178,10 @@ const CreateViteReactProject = () => {
             配置 store 状态管理
           </ContentCard.Paragraph>
           <ContentCard.Text>创建 src/store/index.ts 文件</ContentCard.Text>
-          <ShellCode code={["touch src/store/index.ts"]} />
+          <ContentCard.ShellCode code={["touch src/store/index.ts"]} />
           <ContentCard.Text>创建 counter.ts 文件，导出一个 reducer 函数</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="typescript"
             title="src/store/counter.ts"
             code={[
               "import { createSlice } from '@reduxjs/toolkit';",
@@ -201,7 +207,8 @@ const CreateViteReactProject = () => {
           />
           <ContentCard.Text>编辑 src/store/index.ts 文件，导入 counter 函数</ContentCard.Text>
           <ContentCard.Text>创建自定义hooks：useAppDispatch 和 useAppSelector ，用于方便ts进行类型推断</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="typescript"
             title="src/store/index.ts"
             code={[
               "// 导入组合函数",
@@ -231,7 +238,8 @@ const CreateViteReactProject = () => {
             更新 main.tsx 和 Home.tsx 文件
           </ContentCard.Paragraph>
           <ContentCard.Text>修改 src/main.tsx 文件</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="tsx"
             title="src/main.tsx"
             code={[
               "import React from 'react';",
@@ -262,7 +270,8 @@ const CreateViteReactProject = () => {
           <ContentCard.Text>
             修改完成之后就可以使用 store 了，接下来修改 src/pages/Home.tsx 文件，使用 useAppDispatch 和 useAppSelector 进行状态管理
           </ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="tsx"
             title="src/pages/Home.tsx"
             code={[
               "import { useAppDispatch, useAppSelector } from '@/store';",

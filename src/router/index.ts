@@ -20,16 +20,50 @@ const routes = createBrowserRouter([
         Component: lazy(() => import("@/pages/Home")),
       },
       {
+        path: "/css",
+        Component: lazy(() => import("@/pages/Css")),
+        children: [
+          {
+            path: "/css",
+            Component: lazy(() => import("@/pages/Css/FoundationSelector")),
+          },
+          {
+            path: "/css/foundation-selector",
+            Component: lazy(() => import("@/pages/Css/FoundationSelector")),
+          },
+          {
+            path: "/css/combinators",
+            Component: lazy(() => import("@/pages/Css/Combinators")),
+          },
+          {
+            path: "/css/pseudo-classes",
+            Component: lazy(() => import("@/pages/Css/PseudoClasses")),
+          },
+        ],
+      },
+      {
         path: "/tailwindcss",
         Component: lazy(() => import("@/pages/TailwindCss")),
         children: [
           {
             path: "/tailwindcss",
-            Component: lazy(() => import("@/pages/TailwindCss/FontSize")),
+            Component: lazy(() => import("@/pages/TailwindCss/Start")),
           },
           {
             path: "/tailwindcss/font-size",
             Component: lazy(() => import("@/pages/TailwindCss/FontSize")),
+          },
+          {
+            path: "/tailwindcss/pseudo-class",
+            Component: lazy(() => import("@/pages/TailwindCss/PseudoClass")),
+          },
+          {
+            path: "/tailwindcss/style-child-element",
+            Component: lazy(() => import("@/pages/TailwindCss/StyleChildElement")),
+          },
+          {
+            path: "/tailwindcss/custom-variant",
+            Component: lazy(() => import("@/pages/TailwindCss/CustomVariant")),
           },
         ],
       },

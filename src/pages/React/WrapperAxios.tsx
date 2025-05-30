@@ -1,4 +1,4 @@
-import { CodeCard, ContentCard, DeclarationCard, ShellCode, Template } from "@/components";
+import { ContentCard, DeclarationCard, Template } from "@/components";
 
 const WrapperAxios = () => {
   return (
@@ -7,9 +7,10 @@ const WrapperAxios = () => {
         <ContentCard title="封装 Axios 请求">
           <ContentCard.Paragraph id="wrapper-axios-content-0">封装请求拦截器和响应拦截器</ContentCard.Paragraph>
           <ContentCard.Text>安装 axios.js 库</ContentCard.Text>
-          <ShellCode code={["npm install axios"]} />
+          <ContentCard.ShellCode code={["npm install axios"]} />
           <ContentCard.Text>创建 status.ts 文件，用于管理全局响应的状态码和错误信息。</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="typescript"
             title="status.ts"
             code={[
               "export const showMessage = (status: number | string): string => {",
@@ -56,7 +57,8 @@ const WrapperAxios = () => {
             ]}
           />
           <ContentCard.Text>创建 useRequest.ts 文件，用于封装 Axios 请求。</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="typescript"
             title="useRequest.ts"
             code={[
               "import axios from 'axios';",
@@ -121,7 +123,8 @@ const WrapperAxios = () => {
             封装 Axios 请求组件
           </ContentCard.Paragraph>
           <ContentCard.Text>在 useRequest.ts 文件中添加代码</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="typescript"
             title="useRequest.ts"
             code={[
               "import { useNavigate } from 'react-router-dom';",
@@ -164,7 +167,8 @@ const WrapperAxios = () => {
             ]}
           />
           <ContentCard.Text>创建 AxiosNavigation.ts 文件，用于管理 Axios 请求的封装。</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="typescript"
             title="AxiosNavigation.ts"
             code={[
               "import type { ReactNode, FC } from 'react';",
@@ -186,7 +190,8 @@ const WrapperAxios = () => {
             使用 AxiosNavigation 组件
           </ContentCard.Paragraph>
           <ContentCard.Text>在 App.tsx 文件中使用 AxiosNavigation 组件</ContentCard.Text>
-          <CodeCard
+          <ContentCard.Code
+            language="tsx"
             title="src/App.tsx"
             code={[
               "import { Outlet } from 'react-router-dom';",
