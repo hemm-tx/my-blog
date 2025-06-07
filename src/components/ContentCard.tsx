@@ -13,8 +13,8 @@ interface TextProps {
 
 interface ParagraphProps {
   id?: string;
-  mt?: boolean;
-  children: ReactNode;
+  title: ReactNode;
+  children?: ReactNode;
 }
 interface ListProps {
   list: string[] | ReactNode[];
@@ -26,12 +26,13 @@ interface NoteProps {
 
 // 创建子组件实现
 const Text: FC<TextProps> = ({ children }) => <span className="my-2 leading-6">{children}</span>;
-const Paragraph: FC<ParagraphProps> = ({ id, mt, children }) => (
+const Paragraph: FC<ParagraphProps> = ({ id, title, children }) => (
   <>
-    {mt && <br />}
+    <br />
     <h2 id={id} className="font-bold my-2 text-xl leading-7">
-      {children}
+      {title}
     </h2>
+    {children}
   </>
 );
 const List: FC<ListProps> = ({ list, color }) => {
@@ -73,7 +74,7 @@ export const ContentCard: FC<ContentCardProps> & ContentCardComposition = ({ tit
   return (
     <>
       <h1 className="text-2xl font-bold pt-4 content-card-title">{title}</h1>
-      <Divider size="small" />
+      <Divider className="[&+br]:hidden" size="small" />
       {children}
     </>
   );

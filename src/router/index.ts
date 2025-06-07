@@ -70,6 +70,10 @@ const routes = createBrowserRouter([
       {
         path: "/javascript",
         Component: lazy(() => import("@/pages/JavaScript")),
+        children: [
+          { path: "/javascript", Component: lazy(() => import("@/pages/JavaScript/CommonFunctions")) },
+          { path: "/javascript/common-functions", Component: lazy(() => import("@/pages/JavaScript/CommonFunctions")) },
+        ],
       },
       {
         path: "/react",
@@ -109,6 +113,18 @@ const routes = createBrowserRouter([
             path: "/vitejs/vite-env",
             Component: lazy(() => import("@/pages/Vite/ViteEnv")),
           },
+        ],
+      },
+      {
+        path: "/python",
+        Component: lazy(() => import("@/pages/Python")),
+        children: [
+          { path: "/python", Component: lazy(() => import("@/pages/Python/Pyinstaller")) },
+          { path: "/python/pyinstaller", Component: lazy(() => import("@/pages/Python/Pyinstaller")) },
+          { path: "/python/requirements-txt", Component: lazy(() => import("@/pages/Python/CreateRequirements")) },
+          { path: "/python/lambda-anonymous-function", Component: lazy(() => import("@/pages/Python/Lambda")) },
+          { path: "/python/iterator-and-generator", Component: lazy(() => import("@/pages/Python/IteratorAndGenerator")) },
+          { path: "/python/decorator", Component: lazy(() => import("@/pages/Python/Decorator")) },
         ],
       },
       {

@@ -5,6 +5,7 @@ export const IconComponents = {
   HtmlIcon: lazy(() => import("@/assets/icons/HtmlIcon")),
   CssIcon: lazy(() => import("@/assets/icons/CssIcon")),
   TailwindCssIcon: lazy(() => import("@/assets/icons/TailwindCssIcon")),
+  Mysql: lazy(() => import("@/assets/icons/Mysql")),
   JsIcon: lazy(() => import("@/assets/icons/JsIcon")),
   VueIcon: lazy(() => import("@/assets/icons/VueIcon")),
   ReactIcon: lazy(() => import("@/assets/icons/ReactIcon")),

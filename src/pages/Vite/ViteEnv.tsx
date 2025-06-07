@@ -49,6 +49,9 @@ export default function ViteEnv() {
       </Template.Content>
       <Template.Content id="vite-env-content-data-type">
         <ContentCard title="Vite 定义数据类型">
+          <ContentCard.Text>
+            Vite 定义环境变量的数据类型是通过项目根目录下的 vite-env.d.ts 文件，该文件可以定义环境变量的类型，然后通过 import.meta.env 获取。
+          </ContentCard.Text>
           <ContentCard.Code
             title="vite-env.d.ts"
             language=".d.ts"
@@ -83,10 +86,7 @@ export default function ViteEnv() {
           </Table>
         </ContentCard>
       </Template.Content>
-      <DeclarationCard
-        title="文章声明"
-        importForm={[{ text: "内容摘抄自： Vite 官方文档 《环境变量与模式》", href: "https://cn.vitejs.dev/guide/env-and-mode" }]}
-      />
+      <DeclarationCard importForm={[{ text: "内容摘抄自： Vite 官方文档 《环境变量与模式》", href: "https://cn.vitejs.dev/guide/env-and-mode" }]} />
     </Template>
   );
 }

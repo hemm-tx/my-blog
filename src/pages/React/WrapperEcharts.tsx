@@ -1,16 +1,14 @@
-import { ContentCard } from "@/components";
-import { useRef } from "react";
+import { Template, ContentCard } from "@/components";
 
 const WrapperEcharts = () => {
-  const contentRef = useRef<HTMLDivElement>(null);
   return (
-    <div className="flex flex-row overflow-y-auto" id="wrapper-axios-content-container">
-      <div className="w-3/4 flex flex-col relative" ref={contentRef}>
+    <Template id="react-wrapper-axios">
+      <Template.Content id="react-wrapper-axios-content">
         <ContentCard title="封装 Echarts">
-          <span>还没想好怎么写，先放这儿吧</span>
+          <ContentCard.Text>还没想好怎么写，先放这儿吧</ContentCard.Text>
         </ContentCard>
-      </div>
-    </div>
+      </Template.Content>
+    </Template>
   );
 };
 

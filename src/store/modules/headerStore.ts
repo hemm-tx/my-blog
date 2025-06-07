@@ -116,6 +116,19 @@ const items: IHeaderMenu[] = [
       },
     ],
   },
+  {
+    label: "Mysql",
+    icon: "Mysql",
+    key: "MYSQL",
+    children: [
+      {
+        label: "Mysql",
+        icon: "Mysql",
+        key: "mysql",
+        description: "MySQL 是一款开源的关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于 Oracle 旗下产品。",
+      },
+    ],
+  },
 ];
 
 const headerStore = createSlice({

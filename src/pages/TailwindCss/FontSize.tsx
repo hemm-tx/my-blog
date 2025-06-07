@@ -68,7 +68,7 @@ const FontSize = () => {
           </Table>
         </ContentCard>
       </Template.Content>
-      <DeclarationCard title="文章声明" />
+      <DeclarationCard />
     </Template>
   );
 };

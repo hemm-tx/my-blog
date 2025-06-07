@@ -30,6 +30,7 @@ const CodeCard: FC<CodeCardProps> = ({ title, code, language }) => {
   return (
     <CodeCardContext.Provider value={{ title, code, language }}>
       <Card
+        style={{ margin: "15px 0" }}
         size="small"
         title={
           <div className="flex flex-row justify-between">
@@ -68,7 +69,7 @@ const CreateShellCode = () => {
 const ShellCode: FC<CodeCardProps> = ({ code }) => {
   return (
     <CodeCardContext.Provider value={{ code: code }}>
-      <Card size="small" classNames={{ body: "relative bg-[#FBF5F5]" }}>
+      <Card style={{ margin: "15px 0" }} size="small" classNames={{ body: "relative bg-[#FBF5F5]" }}>
         <CreateShellCode />
       </Card>
     </CodeCardContext.Provider>
@@ -96,7 +97,7 @@ const TabsShellCode: FC<{ items: TabsShellCodeProps[] }> = ({ items }) => {
   }));
 
   return (
-    <Card size="small" classNames={{ body: "relative bg-[#FBF5F5]" }}>
+    <Card style={{ margin: "15px 0" }} size="small" classNames={{ body: "relative bg-[#FBF5F5]" }}>
       <Tabs size="small" defaultActiveKey={tabs[0].key} activeKey={currentLabel} onChange={onChange} items={tabs} />
     </Card>
   );

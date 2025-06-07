@@ -13,39 +13,37 @@ const Start = () => {
       </Template.Content>
       <Template.Content id="tailwindcss-start-usage">
         <ContentCard title="安装">
-          <ContentCard.Paragraph id="tailwindcss-start-usage-install">安装 Tailwind CSS</ContentCard.Paragraph>
-          <ContentCard.Text>在终端中运行以下命令：</ContentCard.Text>
-          <ContentCard.ShellCode code={["npm install tailwindcss @tailwindcss/vite"]} />
-          <ContentCard.Paragraph mt id="tailwindcss-start-usage-configure">
-            配置 Vite 插件
+          <ContentCard.Paragraph title="安装 Tailwind CSS" id="tailwindcss-start-usage-install">
+            <ContentCard.Text>在终端中运行以下命令：</ContentCard.Text>
+            <ContentCard.ShellCode code={["npm install tailwindcss @tailwindcss/vite"]} />
           </ContentCard.Paragraph>
-          <ContentCard.Text>将 @tailwindcss/vite 插件添加到 Vite 配置中。</ContentCard.Text>
-          <ContentCard.Code
-            title="vite.config.ts"
-            language="typescript"
-            code={[
-              "import { defineConfig } from 'vite';",
-              "import tailwindcss from '@tailwindcss/vite';",
-              "",
-              "export default defineConfig({",
-              "  plugins: [",
-              "    tailwindcss(),",
-              "  ],",
-              "});",
-            ]}
-          />
-          <ContentCard.Paragraph mt id="tailwindcss-start-usage-import">
-            导入 Tailwind CSS
+          <ContentCard.Paragraph title="配置 Vite 插件" id="tailwindcss-start-usage-configure">
+            <ContentCard.Text>将 @tailwindcss/vite 插件添加到 Vite 配置中。</ContentCard.Text>
+            <ContentCard.Code
+              title="vite.config.ts"
+              language="typescript"
+              code={[
+                "import { defineConfig } from 'vite';",
+                "import tailwindcss from '@tailwindcss/vite';",
+                "",
+                "export default defineConfig({",
+                "  plugins: [",
+                "    tailwindcss(),",
+                "  ],",
+                "});",
+              ]}
+            />
           </ContentCard.Paragraph>
-          <ContentCard.Text>在 index.css 文件中导入 Tailwind CSS。</ContentCard.Text>
-          <ContentCard.Code title="index.css" language="css" code={['@import "tailwindcss";']} />
-          <ContentCard.Paragraph mt id="tailwindcss-start-usage-use">
-            使用 Tailwind CSS{" "}
+          <ContentCard.Paragraph title="导入 Tailwind CSS" id="tailwindcss-start-usage-import">
+            <ContentCard.Text>在 index.css 文件中导入 Tailwind CSS。</ContentCard.Text>
+            <ContentCard.Code title="index.css" language="css" code={['@import "tailwindcss";']} />
           </ContentCard.Paragraph>
-          <ContentCard.Text>在 HTML、JavaScript 组件或其他模板中使用 Tailwind CSS 类名。</ContentCard.Text>
-          <ContentCard.Code title="index.html" language="html" code={["<div class='bg-blue-500 text-white p-4'>Hello, world!</div>"]} />
+          <ContentCard.Paragraph title="使用 Tailwind CSS" id="tailwindcss-start-usage-use">
+            <ContentCard.Text>在 HTML、JavaScript 组件或其他模板中使用 Tailwind CSS 类名。</ContentCard.Text>
+            <ContentCard.Code title="index.html" language="html" code={["<div class='bg-blue-500 text-white p-4'>Hello, world!</div>"]} />
+          </ContentCard.Paragraph>
         </ContentCard>
-        <DeclarationCard title="文章声明" importForm={[{ text: "文章内容摘抄自官方文档", href: "https://tailwind.org.cn/docs/installation/using-vite" }]} />
+        <DeclarationCard importForm={[{ text: "文章内容摘抄自官方文档", href: "https://tailwind.org.cn/docs/installation/using-vite" }]} />
       </Template.Content>
     </Template>
   );

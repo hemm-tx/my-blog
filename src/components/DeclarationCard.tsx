@@ -1,7 +1,8 @@
 import { type FC } from "react";
 import { Divider } from "antd";
 
-export const DeclarationCard: FC<{ title: string; importForm?: { text: string; href: string }[] }> = ({ title, importForm }) => {
+export const DeclarationCard: FC<{ title?: string; importForm?: { text: string; href: string }[] }> = (props) => {
+  const { title = "文章声明", importForm } = props;
   return (
     <div className="grid">
       <div className="flex flex-col mb-5 *:[span]:text-[14px]">

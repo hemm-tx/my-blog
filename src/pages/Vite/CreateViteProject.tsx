@@ -50,7 +50,7 @@ export default function CreateViteProject() {
         <Text>通过附加的命令行选项直接指定项目名称和想要使用的模板</Text>
         <ContentCard.TabsShellCode items={template_items} />
       </ContentCard>
-      <DeclarationCard title="文章声明" importForm={[{ text: "内容摘抄自： Vite 官方文档 《开始》", href: "https://cn.vitejs.dev/guide/" }]} />
+      <DeclarationCard importForm={[{ text: "内容摘抄自： Vite 官方文档 《开始》", href: "https://cn.vitejs.dev/guide/" }]} />
     </Template>
   );
 }

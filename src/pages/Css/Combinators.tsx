@@ -24,22 +24,18 @@ const Combinators = () => {
             </code>
             选择，DOM结构靠前的兄弟元素不在选择范围内。
           </ContentCard.Note>
-          <ContentCard.Paragraph mt id="descendant-selector">
-            后代选择器
+          <ContentCard.Paragraph title="后代选择器" id="descendant-selector">
+            <ContentCard.Code language="css" title="后代选择器" code={[".parent .child {", "  /* 样式 */", "}"]} />
           </ContentCard.Paragraph>
-          <ContentCard.Code language="css" title="后代选择器" code={[".parent .child {", "  /* 样式 */", "}"]} />
-          <ContentCard.Paragraph mt id="child-selector">
-            子选择器
+          <ContentCard.Paragraph title="子选择器" id="child-selector">
+            <ContentCard.Code language="css" title="子选择器" code={[".parent > .child {", "  /* 样式 */", "}"]} />
           </ContentCard.Paragraph>
-          <ContentCard.Code language="css" title="子选择器" code={[".parent > .child {", "  /* 样式 */", "}"]} />
-          <ContentCard.Paragraph mt id="adjacent-sibling-selector">
-            相邻兄弟选择器
+          <ContentCard.Paragraph title="相邻兄弟选择器" id="adjacent-sibling-selector">
+            <ContentCard.Code language="css" title="相邻兄弟选择器" code={[".sibling + .sibling {", "  /* 样式 */", "}"]} />
           </ContentCard.Paragraph>
-          <ContentCard.Code language="css" title="相邻兄弟选择器" code={[".sibling + .sibling {", "  /* 样式 */", "}"]} />
-          <ContentCard.Paragraph mt id="general-sibling-selector">
-            通用兄弟选择器
+          <ContentCard.Paragraph title="通用兄弟选择器" id="general-sibling-selector">
+            <ContentCard.Code language="css" title="通用兄弟选择器" code={[".sibling ~ .sibling {", "  /* 样式 */", "}"]} />
           </ContentCard.Paragraph>
-          <ContentCard.Code language="css" title="通用兄弟选择器" code={[".sibling ~ .sibling {", "  /* 样式 */", "}"]} />
         </ContentCard>
         <DeclarationCard title="文章声明" />
       </Template.Content>
