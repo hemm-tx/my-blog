@@ -10,19 +10,19 @@ const CustomVariant = () => {
             <ContentCard.Code
               language="html"
               code={[
-                "{/* 当 span 元素具有 primary 类时，将其文本颜色设置为蓝色 */}",
+                "<!-- 当 span 元素具有 primary 类时，将其文本颜色设置为蓝色 -->",
                 "<div>",
                 '  <span class="[&.primary]:text-[#0077cc] primary">This is a with primary class</span>',
                 '  <span class="[&.primary]:text-[#0077cc]">This is a normal span</span>',
                 "</div>",
                 "",
-                "{/* 通过使用 > 来设置子元素样式 */}",
+                "<!-- 通过使用 > 来设置子元素样式 -->",
                 '<div class="[&>span.primary]:text-[#0077cc]">',
                 '  <span class="primary">This is a span with primary class</span>',
                 "  <span>This is a normal span</span>",
                 "</div>",
                 "",
-                "{/* 通过使用 _ 来表示（空格键）设置所有后代元素 */}",
+                "<!-- 通过使用 _ 来表示（空格键）设置所有后代元素 -->",
                 '<div class="[&_span]:text-[#0077cc]">',
                 "  <span>This is a span with primary class</span>",
                 "  <div>",

@@ -21,6 +21,10 @@ const items = [
     label: "font-size",
     key: "font-size",
   },
+  {
+    label: "transition",
+    key: "transition",
+  },
 ];
 
 export default function TailWindCss() {

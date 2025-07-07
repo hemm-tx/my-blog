@@ -10,14 +10,14 @@ const StyleChildElement = () => {
             <ContentCard.Code
               language="html"
               code={[
-                "{/* 直接使用 */}",
+                "<!-- 直接使用 -->",
                 '<ul class="*:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5">',
                 "  <li>Item 1</li>",
                 "  <li>Item 2</li>",
                 "  <li>Item 3</li>",
                 "</ul>",
                 "",
-                "{/* 配合其他选择器使用 */}",
+                "<!-- 配合其他选择器使用 -->",
                 '<div class="*:[span]:text-red-500">',
                 "  <p>This is a p</p>",
                 "  <span>This is a span</span>",
@@ -30,7 +30,7 @@ const StyleChildElement = () => {
             <ContentCard.Code
               language="html"
               code={[
-                "{/* 样式化后代元素 */}",
+                "<!-- 样式化后代元素 -->",
                 '<div class="**:data-test-li:text-red-500">',
                 "  <ul>",
                 "  <li data-test-li>Item 1</li>",
@@ -39,7 +39,7 @@ const StyleChildElement = () => {
                 "  </ul>",
                 "</div>",
                 "",
-                "{/* 配合其他选择器使用 */}",
+                "<!-- 配合其他选择器使用 -->",
                 '<div class="**:[.li-1]:text-red-500 **:[.li-2]:text-green-500 **:[.li-3]:text-blue-500">',
                 "  <ul>",
                 '  <li class="li-1">Item 1</li>',

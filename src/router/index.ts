@@ -65,6 +65,10 @@ const routes = createBrowserRouter([
             path: "/tailwindcss/custom-variant",
             Component: lazy(() => import("@/pages/TailwindCss/CustomVariant")),
           },
+          {
+            path: "/tailwindcss/transition",
+            Component: lazy(() => import("@/pages/TailwindCss/Transition")),
+          },
         ],
       },
       {
@@ -125,6 +129,19 @@ const routes = createBrowserRouter([
           { path: "/python/lambda-anonymous-function", Component: lazy(() => import("@/pages/Python/Lambda")) },
           { path: "/python/iterator-and-generator", Component: lazy(() => import("@/pages/Python/IteratorAndGenerator")) },
           { path: "/python/decorator", Component: lazy(() => import("@/pages/Python/Decorator")) },
+        ],
+      },
+      {
+        path: "/mysql",
+        Component: lazy(() => import("@/pages/Mysql")),
+        children: [
+          { path: "/mysql", Component: lazy(() => import("@/pages/Mysql/Start")) },
+          { path: "/mysql/start", Component: lazy(() => import("@/pages/Mysql/Start")) },
+          { path: "/mysql/ddl-statement", Component: lazy(() => import("@/pages/Mysql/DDLStatement")) },
+          { path: "/mysql/dml-statement", Component: lazy(() => import("@/pages/Mysql/DMLStatement")) },
+          { path: "/mysql/dcl-statement", Component: lazy(() => import("@/pages/Mysql/DCLStatement")) },
+          { path: "/mysql/dql-statement", Component: lazy(() => import("@/pages/Mysql/DQLStatement")) },
+          // { path: "/mysql/decorator", Component: lazy(() => import("@/pages/Mysql/Decorator")) },
         ],
       },
       {

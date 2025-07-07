@@ -13,10 +13,14 @@ const CodeCardContext = createContext<CodeCardProps | null>(null);
 const CodeContent: FC<{ shell?: boolean }> = ({ shell }) => {
   const { code } = useContext(CodeCardContext) || {};
   return (
-    <pre className={`code-snippet ${shell ? "shell" : ""}`}>
-      <code>
+    <pre
+      className={`relative m-0 py-4 bg-transparent overflow-x-auto text-left whitespace-pre break-normal wrap-normal hyphens-none code-snippet ${
+        shell ? "shell" : ""
+      }`}
+    >
+      <code className="block px-6 text-[#67676C] transition-[color] duration-500 leading-[1.7] text-sm">
         {code?.map((line, index) => (
-          <span key={index}>
+          <span className="whitespace-pre block before:inline-block before:w-12 before:text-right before:mr-4 before:pr-3.5" key={index}>
             {line}
             <br />
           </span>

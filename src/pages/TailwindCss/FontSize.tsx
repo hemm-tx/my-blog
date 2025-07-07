@@ -61,11 +61,32 @@ const FontSize = () => {
       <Template.Content id="tailwind-css-fontSize-container">
         <ContentCard title="Font Size">
           <ContentCard.Text>用于控制元素字体大小的实用工具。</ContentCard.Text>
-          <Table dataSource={table_data} pagination={false} rowKey="className">
-            <Column className="text-blue-500" width={300} title="类名" dataIndex="className" key="className" align="center" />
-            <Column title="样式" dataIndex="style" key="style" align="center" />
-            <Column className="text-green-500" title="描述" dataIndex="description" key="description" align="center" />
-          </Table>
+          <ContentCard.Paragraph title="内置 Font Size 类名" id="tailwind-css-fontSize-builtin">
+            <Table dataSource={table_data} pagination={false} rowKey="className" scroll={{ y: 350 }}>
+              <Column className="text-blue-500" width={300} title="类名" dataIndex="className" key="className" align="center" />
+              <Column title="样式" dataIndex="style" key="style" align="center" />
+              <Column className="text-green-500" title="描述" dataIndex="description" key="description" align="center" />
+            </Table>
+          </ContentCard.Paragraph>
+          <ContentCard.Paragraph title="使用 font-size 类名示例">
+            <ContentCard.Code
+              language="html"
+              code={[
+                '<div class="text-xs">0.75rem (12px)</div>',
+                '<div class="text-sm">0.875rem (14px)</div>',
+                '<div class="text-base">1rem (16px)</div>',
+                '<div class="text-lg">1.125rem (18px)</div>',
+                '<div class="text-xl">1.25rem (20px)</div>',
+                '<div class="text-2xl">1.5rem (24px)</div>',
+                "",
+                "<!-- 使用自定义字体大小 -->",
+                '<div class="text-[20px]">20px</div>',
+                "",
+                "<!-- 使用 css 自定义变量 -->",
+                '<div class="text-(--my-custom-property)">value of --my-custom-property</div>',
+              ]}
+            />
+          </ContentCard.Paragraph>
         </ContentCard>
       </Template.Content>
       <DeclarationCard />

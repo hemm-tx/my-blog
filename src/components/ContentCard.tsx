@@ -16,10 +16,12 @@ interface ParagraphProps {
   title: ReactNode;
   children?: ReactNode;
 }
+
 interface ListProps {
   list: string[] | ReactNode[];
   color?: string;
 }
+
 interface NoteProps {
   children: ReactNode;
 }
@@ -29,7 +31,7 @@ const Text: FC<TextProps> = ({ children }) => <span className="my-2 leading-6">{
 const Paragraph: FC<ParagraphProps> = ({ id, title, children }) => (
   <>
     <br />
-    <h2 id={id} className="font-bold my-2 text-xl leading-7">
+    <h2 id={id} className="font-bold my-2 text-lg leading-7">
       {title}
     </h2>
     {children}
@@ -48,7 +50,7 @@ const List: FC<ListProps> = ({ list, color }) => {
   );
 };
 const Note: FC<NoteProps> = ({ children }) => (
-  <div className="my-2 mx-4 relative text-sm leading-6 text-gray-700 before:w-1 before:h-full before:bg-gray-300 before:absolute before:left-[-10px]">
+  <div className="my-2 mx-4 relative text-sm leading-6 text-gray-700 before:w-1.5 before:h-4/5 before:bg-gray-500 before:absolute before:top-1/10 before:left-[-16px]">
     {children}
   </div>
 );

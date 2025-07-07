@@ -1,40 +1,12 @@
 pre.code-snippet {
-  position: relative;
-  margin: 0;
-  padding: 20px 0;
-  background: transparent;
-  overflow-x: auto;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-break: normal;
-  word-spacing: normal;
-  word-wrap: normal;
-  tab-size: 4;
-  --webkit-hyphens: none;
-  // hyphens: none;
   counter-reset: line;
 
   code {
-    display: block;
-    padding: 0 24px;
-    line-height: 1.7;
-    font-size: 0.875rem;
-    color: #67676c;
-    transition: color 0.5s;
-
     span {
-      display: block;
-      white-space: pre;
       &::before {
         counter-increment: line;
         content: counter(line);
-        display: inline-block;
-        width: 3rem;
-        text-align: right;
         border-right: 2px solid #999;
-        padding-right: 0.8rem;
-        margin-right: 1rem;
         color: #999;
       }
     }
@@ -47,7 +19,6 @@ pre.code-snippet {
         counter-increment: none;
         border-right: none;
         content: "$";
-        // width: 1rem;
         color: #e94b4b;
       }
     }
