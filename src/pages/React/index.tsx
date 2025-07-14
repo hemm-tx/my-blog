@@ -6,6 +6,10 @@ const items = [
     key: "create-vite-react-project",
   },
   {
+    label: "Reduxjs Toolkit 异步",
+    key: "reduxjs-toolkit",
+  },
+  {
     label: "Axios 封装",
     key: "wrapper-axios",
   },

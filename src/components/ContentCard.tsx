@@ -8,7 +8,7 @@ interface ContentCardProps {
 }
 
 interface TextProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 interface ParagraphProps {
@@ -24,6 +24,10 @@ interface ListProps {
 
 interface NoteProps {
   children: ReactNode;
+}
+
+interface HtmlLabelProps {
+  children?: ReactNode;
 }
 
 // 创建子组件实现
@@ -54,6 +58,7 @@ const Note: FC<NoteProps> = ({ children }) => (
     {children}
   </div>
 );
+const HtmlLabel: FC<HtmlLabelProps> = ({ children }) => <code>&lt;{children}&gt;</code>;
 
 // 创建复合组件类型
 interface ContentCardComposition {
@@ -61,6 +66,7 @@ interface ContentCardComposition {
   Paragraph: FC<ParagraphProps>;
   List: FC<ListProps>;
   Note: FC<NoteProps>;
+  HtmlLabel: FC<HtmlLabelProps>;
   Code: typeof CodeCard;
   ShellCode: typeof ShellCode;
   TabsShellCode: typeof TabsShellCode;
@@ -86,6 +92,7 @@ ContentCard.Text = Text;
 ContentCard.Paragraph = Paragraph;
 ContentCard.List = List;
 ContentCard.Note = Note;
+ContentCard.HtmlLabel = HtmlLabel;
 ContentCard.Code = CodeCard;
 ContentCard.ShellCode = ShellCode;
 ContentCard.TabsShellCode = TabsShellCode;

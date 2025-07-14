@@ -44,7 +44,7 @@ const CreateViteReactProject = () => {
         <ContentCard title="配置项目">
           <ContentCard.Paragraph title="安装依赖" id="configure-project-0">
             <ContentCard.Text>安装 react-redux 和 react-router-dom</ContentCard.Text>
-            <ContentCard.ShellCode code={["npm install react-redux react-router-dom"]} />
+            <ContentCard.ShellCode code={["npm install react-redux react-router-dom @reduxjs/toolkit"]} />
             <ContentCard.Text>安装 scss 预处理器</ContentCard.Text>
             <ContentCard.ShellCode code={["npm install sass sass-loader --save-dev"]} />
             <ContentCard.Text>安装 tailwindcss</ContentCard.Text>
@@ -179,7 +179,7 @@ const CreateViteReactProject = () => {
               language="typescript"
               title="src/store/counter.ts"
               code={[
-                "import { createSlice } from '@reduxjs/toolkit';",
+                "import { createSlice, PayloadAction } from '@reduxjs/toolkit';",
                 "",
                 "const counterSlice = createSlice({",
                 "  name: 'counter',",
@@ -192,6 +192,10 @@ const CreateViteReactProject = () => {
                 "    },",
                 "    decrement(state) {",
                 "      state.value--;",
+                "    },",
+                "    // 使用 PayloadAction 声明 action.payload 的类型",
+                "    incrementByAmount: (state, action: PayloadAction<number>) => {",
+                "      state.count += action.payload;",
                 "    },",
                 "  },",
                 "});",

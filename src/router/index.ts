@@ -92,6 +92,10 @@ const routes = createBrowserRouter([
             Component: lazy(() => import("@/pages/React/CreateViteReactProject")),
           },
           {
+            path: "/react/reduxjs-toolkit",
+            Component: lazy(() => import("@/pages/React/ReduxjsToolkit")),
+          },
+          {
             path: "/react/wrapper-axios",
             Component: lazy(() => import("@/pages/React/WrapperAxios")),
           },
@@ -129,6 +133,16 @@ const routes = createBrowserRouter([
           { path: "/python/lambda-anonymous-function", Component: lazy(() => import("@/pages/Python/Lambda")) },
           { path: "/python/iterator-and-generator", Component: lazy(() => import("@/pages/Python/IteratorAndGenerator")) },
           { path: "/python/decorator", Component: lazy(() => import("@/pages/Python/Decorator")) },
+        ],
+      },
+      {
+        path: "/fastapi",
+        Component: lazy(() => import("@/pages/Fastapi")),
+        children: [
+          { path: "/fastapi", Component: lazy(() => import("@/pages/Fastapi/CreateFastapiProject")) },
+          { path: "/fastapi/create-fastapi-project", Component: lazy(() => import("@/pages/Fastapi/CreateFastapiProject")) },
+          { path: "/fastapi/environment-variables", Component: lazy(() => import("@/pages/Fastapi/EnvironmentVariables")) },
+          { path: "/fastapi/static-resource", Component: lazy(() => import("@/pages/Fastapi/StaticResource")) },
         ],
       },
       {
