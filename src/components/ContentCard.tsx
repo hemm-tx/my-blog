@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from "react";
-import { Divider } from "antd";
+import { Divider, Image as AntdImage } from "antd";
 import { CodeCard, ShellCode, TabsShellCode } from "./CodeCard";
 
 interface ContentCardProps {
@@ -9,6 +9,17 @@ interface ContentCardProps {
 
 interface TextProps {
   children?: ReactNode;
+}
+
+interface HrefProps {
+  href?: string;
+  children?: ReactNode;
+}
+
+interface ImageProps {
+  src: string;
+  alt?: string;
+  width?: number | string;
 }
 
 interface ParagraphProps {
@@ -32,6 +43,18 @@ interface HtmlLabelProps {
 
 // 创建子组件实现
 const Text: FC<TextProps> = ({ children }) => <span className="my-2 leading-6">{children}</span>;
+const Href: FC<HrefProps> = ({ children, href }) => (
+  <div className="my-2 leading-5">
+    <a className="underline-offset-5 underline text-blue-400 hover:text-blue-800" href={href}>
+      {children}
+    </a>
+  </div>
+);
+const Image: FC<ImageProps> = ({ src, alt, width = "75%" }) => (
+  <div className="w-full my-3 flex place-content-center">
+    <AntdImage src={src} alt={alt} width={width} />
+  </div>
+);
 const Paragraph: FC<ParagraphProps> = ({ id, title, children }) => (
   <>
     <br />
@@ -63,6 +86,8 @@ const HtmlLabel: FC<HtmlLabelProps> = ({ children }) => <code>&lt;{children}&gt;
 // 创建复合组件类型
 interface ContentCardComposition {
   Text: FC<TextProps>;
+  Href: FC<HrefProps>;
+  Image: FC<ImageProps>;
   Paragraph: FC<ParagraphProps>;
   List: FC<ListProps>;
   Note: FC<NoteProps>;
@@ -89,6 +114,8 @@ export const ContentCard: FC<ContentCardProps> & ContentCardComposition = ({ tit
 };
 
 ContentCard.Text = Text;
+ContentCard.Href = Href;
+ContentCard.Image = Image;
 ContentCard.Paragraph = Paragraph;
 ContentCard.List = List;
 ContentCard.Note = Note;

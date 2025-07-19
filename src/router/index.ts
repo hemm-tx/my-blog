@@ -159,6 +159,14 @@ const routes = createBrowserRouter([
         ],
       },
       {
+        path: "/project-share",
+        Component: lazy(() => import("@/pages/Other/ProjectShare")),
+        children: [
+          { path: "/project-share", Component: lazy(() => import("@/pages/Other/ProjectShare/HikvisionCamera")) },
+          { path: "/project-share/push-hikvision-camera", Component: lazy(() => import("@/pages/Other/ProjectShare/HikvisionCamera")) },
+        ],
+      },
+      {
         path: "*",
         Component: lazy(() => import("@/pages/NotFound")),
       },

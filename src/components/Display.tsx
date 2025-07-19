@@ -22,9 +22,10 @@ export const Display: FC<DisplayProps> = ({ items, parentPath }) => {
   }, [location.pathname]);
 
   return (
-    <div className="w-full h-full grid grid-cols-5 gap-2">
-      <div className="table h-full w-full">
+    <div className="w-full h-full flex flex-row">
+      <div className="table h-full w-1/5 max-sm:w-0 transition-[width] duration-300">
         <Menu
+          className="max-sm:hidden"
           style={{ height: "100%", overflowY: "auto" }}
           mode="inline"
           defaultSelectedKeys={[activeKey ?? items[0].key]}
@@ -33,7 +34,7 @@ export const Display: FC<DisplayProps> = ({ items, parentPath }) => {
           onClick={(e) => navigate(`/${parentPath}/${e.key}`)}
         />
       </div>
-      <div className="col-span-4 relative *:[div]:py-3 *:[div]:px-5 *:[div]:w-full *:[div]:h-full *:[div]:absolute *:[div]:overflow-y-auto">
+      <div className="flex-1 relative *:[div]:py-3 *:[div]:px-5 *:[div]:w-full *:[div]:h-full *:[div]:absolute *:[div]:overflow-y-auto">
         <Outlet></Outlet>
       </div>
     </div>
@@ -65,10 +66,10 @@ export const Template: FC<TemplateProps> & { Content: FC<TemplateContentProps> }
   const contentRef = useRef<HTMLDivElement>(null);
   return (
     <div className="flex flex-row" id={id}>
-      <div className="w-3/4 flex flex-col relative" ref={contentRef}>
+      <div className="w-full lg:w-3/4 flex flex-col relative transition-[width] duration-300" ref={contentRef}>
         {children}
       </div>
-      <CreateAnchor containerId={id} contentRef={contentRef} />
+      <CreateAnchor className="w-0 lg:w-1/4" containerId={id} contentRef={contentRef} />
     </div>
   );
 };

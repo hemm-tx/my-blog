@@ -5,6 +5,8 @@ import HomeIcon from "./HomeIcon";
 import HtmlIcon from "./HtmlIcon";
 import JsIcon from "./JsIcon";
 import Mysql from "./Mysql";
+import OtherIcon from "./OtherIcon";
+import ProjectIcon from "./ProjectIcon";
 import PythonIcon from "./PythonIcon";
 import ReactIcon from "./ReactIcon";
 import RustIcon from "./RustIcon";
@@ -21,6 +23,8 @@ export {
   HtmlIcon,
   JsIcon,
   Mysql,
+  OtherIcon,
+  ProjectIcon,
   PythonIcon,
   ReactIcon,
   RustIcon,

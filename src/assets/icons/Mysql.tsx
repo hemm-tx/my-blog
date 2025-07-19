@@ -1,4 +1,4 @@
-const JsIcon = ({ size = 200, color = "#CE8B2C" }) => {
+const MysqlIcon = ({ size = 200, color = "#CE8B2C" }) => {
   return (
     <svg viewBox="0 0 1972 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2354" width={size} height={size}>
       <path
@@ -20,4 +20,4 @@ const JsIcon = ({ size = 200, color = "#CE8B2C" }) => {
   );
 };
 
-export default JsIcon;
+export default MysqlIcon;

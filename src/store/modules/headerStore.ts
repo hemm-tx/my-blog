@@ -129,6 +129,19 @@ const items: IHeaderMenu[] = [
       },
     ],
   },
+  {
+    label: "Other",
+    icon: "OtherIcon",
+    key: "Other",
+    children: [
+      {
+        label: "项目分享",
+        icon: "ProjectIcon",
+        key: "project-share",
+        description: "分享一些我做过的项目，欢迎大家交流学习。",
+      },
+    ],
+  },
 ];
 
 const headerStore = createSlice({
