@@ -4,6 +4,7 @@ import FastapiIcon from "./FastapiIcon";
 import HomeIcon from "./HomeIcon";
 import HtmlIcon from "./HtmlIcon";
 import JsIcon from "./JsIcon";
+import MenusIcon from "./Menus";
 import Mysql from "./Mysql";
 import OtherIcon from "./OtherIcon";
 import ProjectIcon from "./ProjectIcon";
@@ -22,6 +23,7 @@ export {
   HomeIcon,
   HtmlIcon,
   JsIcon,
+  MenusIcon,
   Mysql,
   OtherIcon,
   ProjectIcon,

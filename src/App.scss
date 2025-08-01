@@ -24,3 +24,26 @@ pre.code-snippet {
     }
   }
 }
+
+.headerBlogFont {
+  position: relative;
+  letter-spacing: 0.07em;
+  font-size: 1.5em;
+  font-weight: normal;
+  margin: 0 auto;
+  display: inline-block;
+  font-weight: bold;
+  color: #def;
+  text-shadow: 0 0 1px currentColor, -1px -1px 1px #000, 0 -1px 1px #000, 1px -1px 1px #000, 1px 0 1px #000, 1px 1px 1px #000, 0 1px 1px #000, -1px 1px 1px #000,
+    -1px 0 1px #000;
+  -webkit-filter: url(#diff1);
+  filter: url(#diff1);
+}
+
+.direction-rtl {
+  direction: rtl;
+}
+
+.direction-ltr {
+  direction: ltr;
+}

@@ -6,10 +6,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
-const create_menu_label = (icon: IconType, label: string) => {
+const MenuLabel: FC<{ icon: IconType; label: string }> = ({ icon, label }) => {
   const IconComponent = IconComponents[icon];
   return (
-    <div className="flex flex-row items-center">
+    <div className="flex flex-row items-center direction-ltr">
       <IconComponent size={24} />
       <span className="ml-2 text-[#64854C] font-bold">{label}</span>
     </div>
@@ -22,13 +22,15 @@ export const HeaderMenu: FC = () => {
 
   const menuData = useAppSelector((state) => state.header.menuData);
   const [items, setItems] = useState<MenuItem[]>([]);
+  const [current, setCurrent] = useState("home");
+
   useEffect(() => {
     setItems(
       menuData.map((item) => ({
-        label: create_menu_label(item.icon, item.label),
+        label: <MenuLabel icon={item.icon} label={item.label} />,
         key: item.key,
         children: item.children?.map((child) => ({
-          label: create_menu_label(child.icon, child.label),
+          label: <MenuLabel icon={child.icon} label={child.label} />,
           key: child.key,
         })),
       }))
@@ -40,18 +42,37 @@ export const HeaderMenu: FC = () => {
     else setCurrent(location.pathname.split("/")[1]);
   }, [location.pathname]);
 
-  const [current, setCurrent] = useState("home");
-
   const onClick: MenuProps["onClick"] = (e) => {
     navigate(`/${e.key}`);
     setCurrent(e.key);
   };
 
   return (
-    <div className="w-full flex flex-row">
-      <div></div>
-      <div className="flex-1">
-        <Menu onClick={onClick} defaultValue={"home"} selectedKeys={[current]} mode="horizontal" items={items} />
+    <div className="w-full flex flex-row bg-white">
+      <div className="flex flex-row px-3">
+        <img src="/blog.png" alt="blog logo" className="w-15 h-15" />
+        <span className="headerBlogFont">My Blog</span>
+      </div>
+      <div className="flex-1 direction-rtl">
+        <div className="max-md:hidden">
+          <Menu theme="light" onClick={onClick} defaultValue={"home"} selectedKeys={[current]} mode="horizontal" items={items} />
+        </div>
+        <div className="min-md:hidden">
+          <Menu
+            theme="light"
+            onClick={onClick}
+            defaultValue={"home"}
+            selectedKeys={[current]}
+            mode="horizontal"
+            items={[
+              {
+                label: <MenuLabel icon="MenusIcon" label="菜单" />,
+                key: "menus",
+                children: items,
+              },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );

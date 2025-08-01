@@ -4,7 +4,7 @@ const Combinators = () => {
   return (
     <Template id="css-combinators">
       <Template.Content id="combinators">
-        <ContentCard title="css 组合选择器">
+        <ContentCard title="CSS 组合选择器">
           <ContentCard.Text>
             CSS 组合选择器是一种基于选择器的技术，它允许你将多个选择器组合在一起，形成一个更大的选择器。
             组合选择器可以帮助你更精确地控制元素的样式，并减少代码量。 常见的 CSS 组合选择器有以下几种：

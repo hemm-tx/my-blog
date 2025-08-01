@@ -1,4 +1,4 @@
-const HomeIcon = ({ size = 200, color = "#30CAAA" }) => {
+const HomeIcon = ({ size = 200, color = "#1296DB" }) => {
   return (
     <svg viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12454" width={size} height={size}>
       <path
