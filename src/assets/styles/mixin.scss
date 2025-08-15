@@ -20,11 +20,11 @@
 
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {
-  width: 5px; /* 设置滚动条的宽度 */
-  height: 5px;
+  width: 8px; /* 设置滚动条的宽度 */
+  height: 8px;
   &:hover {
-    width: 5px; /* 设置滚动条的宽度 */
-    height: 5px;
+    width: 8px; /* 设置滚动条的宽度 */
+    height: 8px;
   }
 }
 

@@ -124,6 +124,20 @@ const routes = createBrowserRouter([
         ],
       },
       {
+        path: "/vue",
+        Component: lazy(() => import("@/pages/Vue")),
+        children: [
+          {
+            path: "/vue",
+            Component: lazy(() => import("@/pages/Vue/CreateViteProject")),
+          },
+          {
+            path: "/vue/create-vue-project",
+            Component: lazy(() => import("@/pages/Vue/CreateViteProject")),
+          },
+        ],
+      },
+      {
         path: "/python",
         Component: lazy(() => import("@/pages/Python")),
         children: [

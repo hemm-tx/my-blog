@@ -38,6 +38,7 @@ const CreateFastapiProject = () => {
               title="app/main.py"
               code={[
                 "from fastapi import FastAPI",
+                "from fastapi.middleware.cors import CORSMiddleware",
                 "",
                 "# 导入路由",
                 "from app.routers import example, user",

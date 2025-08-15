@@ -6,7 +6,7 @@ const CreateViteReactProject = () => {
       <Template.Content id="create-vite-react-project">
         <ContentCard title="创建 Vite React 项目">
           <ContentCard.Text>使用 Vite 创建 React 项目</ContentCard.Text>
-          <ContentCard.ShellCode code={["npm create-vite-app my-app --template react"]} />
+          <ContentCard.ShellCode code={["npm create vite my-app --template react"]} />
           <ContentCard.Text>安装依赖并启动项目</ContentCard.Text>
           <ContentCard.ShellCode code={["cd my-app", "npm install", "npm run dev"]} />
         </ContentCard>
@@ -87,7 +87,10 @@ const CreateViteReactProject = () => {
           </ContentCard.Paragraph>
           <ContentCard.Paragraph title="创建项目文件夹和文件" id="configure-project-2">
             <ContentCard.Text>运行命令创建项目所需要的文件夹和文件</ContentCard.Text>
-            <ContentCard.ShellCode code={["mkdir src/routes src/pages src/components src/store src/assets src/api", "touch src/pages/Home.tsx"]} />
+            <ContentCard.ShellCode
+              code={["cd src", "md routes", "md pages", "md components", "md store", "md assets", "md api", "cd pages", "cd . > Home.tsx"]}
+            />
+            <ContentCard.Note>按理来说可以使用 md 目录名1 目录名2 来批量创建，但是报错了，懒得找原因，就这样吧</ContentCard.Note>
             <ContentCard.Text>在 index.css 文件中导入 tailwindcss 样式文件</ContentCard.Text>
             <ContentCard.Code language="css" title="src/index.css" code={["@import 'tailwindcss';"]} />
             <ContentCard.Text>编辑 src/pages/Home.tsx 文件</ContentCard.Text>
@@ -292,6 +295,46 @@ const CreateViteReactProject = () => {
             />
           </ContentCard.Paragraph>
           <ContentCard.Text>修改完成之后，就可以正常运行项目了！！！</ContentCard.Text>
+          <ContentCard.Paragraph title="版本信息" id="version-info">
+            <ContentCard.Code
+              language="json"
+              title="package.json"
+              code={[
+                '"dependencies": {',
+                '  "@ant-design/icons": "5.x",',
+                '  "@ant-design/v5-patch-for-react-19": "^1.0.3",',
+                '  "@emotion/react": "^11.14.0",',
+                '  "@reduxjs/toolkit": "^2.7.0",',
+                '  "@tailwindcss/vite": "^4.1.7",',
+                '  "antd": "^5.24.8",',
+                '  "axios": "^1.9.0",',
+                '  "echarts": "^6.0.0",',
+                '  "react": "^19.1.0",',
+                '  "react-awesome-reveal": "^4.3.1",',
+                '  "react-dom": "^19.1.0",',
+                '  "react-redux": "^9.2.0",',
+                '  "react-router-dom": "^7.5.1",',
+                '  "tailwindcss": "^4.1.7"',
+                "},",
+                '"devDependencies": {',
+                '  "@eslint/js": "^9.25.0",',
+                '  "@types/node": "^22.14.1",',
+                '  "@types/react": "^19.1.2",',
+                '  "@types/react-dom": "^19.1.2",',
+                '  "@vitejs/plugin-react": "^4.4.1",',
+                '  "eslint": "^9.25.0",',
+                '  "eslint-plugin-react-hooks": "^5.2.0",',
+                '  "eslint-plugin-react-refresh": "^0.4.19",',
+                '  "globals": "^16.0.0",',
+                '  "sass": "^1.87.0",',
+                '  "sass-loader": "^16.0.5",',
+                '  "typescript": "~5.8.3",',
+                '  "typescript-eslint": "^8.30.1",',
+                '  "vite": "^6.3.5"',
+                "}",
+              ]}
+            />
+          </ContentCard.Paragraph>
         </ContentCard>
       </Template.Content>
       <DeclarationCard />
